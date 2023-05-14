@@ -1,0 +1,39 @@
+.code-editor-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 2rem 0;
+  background-color: #242424;
+}
+
+.html-editor,
+.css-editor,
+.js-editor {
+  width: 31%;
+  border: 1px solid #3f4247;
+}
+.code-header {
+  display: flex;
+  padding: 0.5rem 0.7rem;
+  background-color: #12121a;
+  border-bottom: 1px solid #3f4247;
+}
+.code-header > p {
+  color: #fff;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.html-code-icon {
+  color: #e3722e;
+  margin-right: 0.5rem;
+}
+.css-code-icon {
+  color: #1694d9;
+  margin-right: 0.5rem;
+}
+.js-code-icon {
+  color: #c6cb41;
+  margin-right: 0.5rem;
+}

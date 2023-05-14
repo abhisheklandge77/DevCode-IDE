@@ -1,0 +1,36 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  color: #fff;
+  background-color: #12121a;
+}
+
+.logo > h2 {
+  margin: 0;
+}
+
+.theme-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.theme-button:hover {
+  border-color: #646cff;
+}
+.theme-button:focus,
+.theme-button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.moon-icon {
+  color: lavender;
+}
+
+.sun-icon {
+  color: yellow;
+}
