@@ -1,4 +1,17 @@
 .code-output-container {
   width: 99%;
+  min-height: 100vh;
   margin: 0 auto;
+  position: relative;
+}
+.new-window {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 10000;
+}
+.new-window-icon {
+  color: #12121a;
+  background-color: #fff;
+  border-radius: 5px;
 }

@@ -4,6 +4,7 @@ import "./Editor.css";
 
 function Editor(props) {
   const { language, theme, code, setCode } = props;
+
   return (
     <div>
       <CodeMirror

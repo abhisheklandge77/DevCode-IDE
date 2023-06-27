@@ -1,0 +1,69 @@
+.signup-container {
+  background-image: url("../../assets/matrix-bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 3rem 0;
+}
+.signup-form {
+  background-color: #12121a;
+  width: 40%;
+  border-top: 5px solid #646cff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  background-image: url("../../assets/signup-bg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+h1 {
+  color: #646cff;
+  margin: 1rem 0;
+}
+.signup-form img {
+  width: 100px;
+  height: 100px;
+}
+.input-field {
+  padding: 0.5rem 1rem;
+  border: 1px solid #646cff;
+  outline: none;
+  background-color: #282c34;
+  color: #fff;
+  border-radius: 5px;
+  margin-bottom: 1.3rem;
+  width: 40%;
+}
+.remember-field {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  color: #fff;
+  margin-bottom: 1.3rem;
+}
+.remember-field label {
+  margin-left: 0.5rem;
+}
+.signup-btn {
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: #646cff;
+  padding: 0.5rem 3rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+.signup-btn:hover {
+  background-color: #4951ec;
+  transition: 0.3s ease-in-out;
+}
+a {
+  color: #c9c5c5;
+  margin-bottom: 1rem;
+  font-style: italic;
+}

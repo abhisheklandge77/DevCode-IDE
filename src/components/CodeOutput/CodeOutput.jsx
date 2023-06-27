@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./CodeOutput.css";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
 function CodeOutput(props) {
   const { htmlCode, cssCode, jsCode } = props;
+
   const [outputDoc, setOutputDoc] = useState(`
   <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DevOCde Output</title>
+        <title>DevCode Output</title>
     </head>
     <body>
     </body>
@@ -24,7 +26,7 @@ function CodeOutput(props) {
               <meta charset="UTF-8">
               <meta http-equiv="X-UA-Compatible" content="IE=edge">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>DevOCde Output</title>
+              <title>DevCode Output</title>
               <style>${cssCode}</style>
           </head>
           <body>
@@ -34,17 +36,21 @@ function CodeOutput(props) {
       </html>
         `;
       setOutputDoc(codeDoc);
-    }, 1000);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [htmlCode, cssCode, jsCode]);
 
   return (
     <div className="code-output-container">
+      {window.location.pathname !== "/code-output" && (
+        <a href="/code-output" target="_blank" className="new-window">
+          <OpenInNewIcon className="new-window-icon" />
+        </a>
+      )}
       <iframe
         srcDoc={outputDoc}
-        height="100%"
-        width="100%"
+        style={{ minHeight: "97vh", width: "100%", margin: 0, padding: 0 }}
         title="Results"
       ></iframe>
     </div>

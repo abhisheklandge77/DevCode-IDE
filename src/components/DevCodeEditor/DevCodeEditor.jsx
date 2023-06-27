@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Editor from "../Editor/Editor";
 import { javascript } from "@codemirror/lang-javascript";
 import { html } from "@codemirror/lang-html";
@@ -8,11 +8,15 @@ import CodeIcon from "@mui/icons-material/Code";
 import CodeOutput from "../CodeOutput/CodeOutput";
 
 function DevCodeEditor(props) {
-  const { editorTheme } = props;
-
-  const [htmlCode, setHtmlCode] = useState("");
-  const [cssCode, setCssCode] = useState("");
-  const [jsCode, setJsCode] = useState("");
+  const {
+    editorTheme,
+    htmlCode,
+    setHtmlCode,
+    cssCode,
+    setCssCode,
+    jsCode,
+    setJsCode,
+  } = props;
 
   return (
     <div className="dev-code-container">

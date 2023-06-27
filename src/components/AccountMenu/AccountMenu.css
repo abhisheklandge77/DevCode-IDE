@@ -1,0 +1,29 @@
+.menu-symbol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+  border: 2px solid #282c34;
+  font-size: 20px;
+  background-color: #282c34;
+}
+
+.menu-symbol:hover {
+  border: 2px solid #646cff;
+}
+
+.menu-symbol p {
+  margin: 0;
+}
+#account-menu {
+  margin-top: 2rem;
+}
+
+.account-menu-icon {
+  margin-right: 0.3rem;
+}
