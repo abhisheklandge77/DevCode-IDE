@@ -30,13 +30,13 @@ function App() {
     "projectName",
     "Untitled"
   );
+  const [projectId, setProjectId] = useLocalStorage("projectId", "");
   const [userData, setUserData] = useState();
   const [showNavbar, setShowNavbar] = useState(false);
   const [showEditorOptions, setShowEditorOptions] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
 
   useEffect(() => {
-    console.log("Show Navbar:::", window.location.pathname, showNavbar);
     if (
       window.location.pathname !== "/signup" &&
       window.location.pathname !== "/login"
@@ -63,7 +63,12 @@ function App() {
       },
     });
     console.log("validate response:::", response);
-    setUserData(response.data.data);
+    if (response?.data?.status === 201) {
+      setUserData(response.data.data);
+    } else if (response?.data?.status === 401) {
+      alert("Session has expired ! Sign in again");
+      setUserData();
+    }
   };
 
   return (
@@ -81,8 +86,13 @@ function App() {
               setShowEditorOptions={setShowEditorOptions}
               setShowLoader={setShowLoader}
               htmlCode={htmlCode}
+              setHtmlCode={setHtmlCode}
               cssCode={cssCode}
+              setCssCode={setCssCode}
               jsCode={jsCode}
+              setJsCode={setJsCode}
+              projectId={projectId}
+              setProjectId={setProjectId}
             />
           )}
           <Routes>
@@ -123,7 +133,7 @@ function App() {
               }
             />
             <Route
-              path="code-output"
+              path="/code-output"
               element={
                 <CodeOutput
                   htmlCode={htmlCode}
@@ -133,12 +143,17 @@ function App() {
               }
             />
             <Route
-              path="forgot-password"
+              path="/forgot-password"
               element={<ForgotPassword setShowLoader={setShowLoader} />}
             />
             <Route
               path="/reset-password/:id/:token"
-              element={<ResetPassword setShowLoader={setShowLoader} />}
+              element={
+                <ResetPassword
+                  setShowLoader={setShowLoader}
+                  setShowNavbar={setShowNavbar}
+                />
+              }
             />
             <Route path="*" element={<PageNotFound />} />
           </Routes>

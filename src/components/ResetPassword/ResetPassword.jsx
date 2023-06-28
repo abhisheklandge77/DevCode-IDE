@@ -3,12 +3,11 @@ import "./ResetPassword.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-function ResetPassword({ setShowLoader }) {
+function ResetPassword({ setShowLoader, setShowNavbar }) {
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
 
   const { id, token } = useParams();
-  console.log("Params:::", id, token);
 
   const navigate = useNavigate();
 
@@ -35,6 +34,7 @@ function ResetPassword({ setShowLoader }) {
             setShowLoader(false);
             alert("Password Updated Successfully");
             clearAllFields();
+            setShowNavbar(false);
             navigate("/login");
           }
         })

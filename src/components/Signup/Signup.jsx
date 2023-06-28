@@ -48,6 +48,7 @@ function Signup({ setShowLoader }) {
         })
         .catch((error) => {
           setShowLoader(false);
+          alert(error.response.data.error);
           console.log("Error::::", error);
         });
     }

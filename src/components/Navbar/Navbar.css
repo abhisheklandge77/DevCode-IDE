@@ -10,6 +10,7 @@
 .logo {
   width: 160px;
   height: 25px;
+  cursor: pointer;
 }
 .logo img {
   width: 100%;

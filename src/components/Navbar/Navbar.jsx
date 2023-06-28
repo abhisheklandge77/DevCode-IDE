@@ -24,6 +24,11 @@ function Navbar(props) {
     htmlCode,
     cssCode,
     jsCode,
+    projectId,
+    setProjectId,
+    setHtmlCode,
+    setCssCode,
+    setJsCode,
   } = props;
 
   const userData = useContext(UserContext);
@@ -40,13 +45,14 @@ function Navbar(props) {
   }, [window.location.pathname]);
 
   const handleSaveBtnClick = async () => {
-    if (!userData.userName) {
+    if (!userData?.userName) {
       const confirmation = confirm(
         "You are not signed in! Sign in first to save your project."
       );
       if (!confirmation) {
         return;
       }
+      setShowNavbar(false);
       navigate("/login");
       return;
     } else {
@@ -60,10 +66,17 @@ function Navbar(props) {
           htmlCode,
           cssCode,
           jsCode,
+          projectId,
         })
         .then((res) => {
-          console.log("Response:::", res);
           if (res) {
+            if (res?.data?.data?.projects?.length) {
+              res?.data?.data?.projects.forEach((project) => {
+                if (project.projectName === projectName) {
+                  setProjectId(project._id);
+                }
+              });
+            }
             setShowLoader(false);
             alert(`Project ${projectName} saved successfully`);
           }
@@ -77,7 +90,7 @@ function Navbar(props) {
 
   return (
     <nav className="nav-container">
-      <div className="logo">
+      <div className="logo" onClick={() => navigate("/")}>
         <img src={logo} alt="DevCode Logo" />
       </div>
       {showEditorOptions && (
@@ -113,6 +126,11 @@ function Navbar(props) {
           setShowNavbar={setShowNavbar}
           setShowEditorOptions={setShowEditorOptions}
           setShowLoader={setShowLoader}
+          setHtmlCode={setHtmlCode}
+          setCssCode={setCssCode}
+          setJsCode={setJsCode}
+          setProjectName={setProjectName}
+          setProjectId={setProjectId}
         />
       </div>
     </nav>

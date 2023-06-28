@@ -7,8 +7,17 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function AccountMenu(props) {
-  const { userData, setShowNavbar, setShowEditorOptions, setShowLoader } =
-    props;
+  const {
+    userData,
+    setShowNavbar,
+    setShowEditorOptions,
+    setShowLoader,
+    setProjectId,
+    setHtmlCode,
+    setCssCode,
+    setJsCode,
+    setProjectName,
+  } = props;
   const [anchorEl, setAnchorEl] = useState(null);
 
   const navigate = useNavigate();
@@ -33,6 +42,11 @@ function AccountMenu(props) {
       localStorage.removeItem("userauthtoken");
       setShowNavbar(false);
       setShowLoader(false);
+      setHtmlCode("");
+      setCssCode("");
+      setJsCode("");
+      setProjectId("");
+      setProjectName("Untitled");
       navigate("/login");
     } else {
       setShowLoader(false);
