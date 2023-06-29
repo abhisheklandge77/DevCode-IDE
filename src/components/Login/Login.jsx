@@ -33,7 +33,7 @@ function Login({ setShowNavbar, setShowLoader }) {
         .then((res) => {
           console.log("Response:::", res);
           if (res) {
-            localStorage.setItem("userauthtoken", res.data.data.token);
+            localStorage.setItem("userauthtoken", res?.data?.data?.token);
             setShowLoader(false);
             alert("User Login Successfully");
             clearAllFields();
@@ -43,7 +43,7 @@ function Login({ setShowNavbar, setShowLoader }) {
         })
         .catch((error) => {
           setShowLoader(false);
-          alert(error.response.data.error);
+          alert(error?.response?.data.error || "User Login Failed !");
           console.log("Error::::", error);
         });
     }

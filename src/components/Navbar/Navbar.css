@@ -5,6 +5,7 @@
   padding: 1rem 1.5rem;
   color: #fff;
   background-color: #12121a;
+  border-bottom: 1px solid #292929;
 }
 
 .logo {
@@ -17,7 +18,7 @@
   height: 100%;
 }
 
-.project-name {
+.project-name-input {
   padding: 0.4rem 1rem;
   outline: none;
   border: 1px solid #646cff;

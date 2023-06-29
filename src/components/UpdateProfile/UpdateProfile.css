@@ -1,0 +1,49 @@
+.update-profile-container {
+  padding: 3rem 0;
+}
+.update-profile-form {
+  background-color: #282c34;
+  border-radius: 5px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+  margin: 0 auto;
+}
+h1 {
+  color: #646cff;
+  margin: 1rem 0 2rem 0;
+}
+.update-profile-form img {
+  width: 100px;
+  height: 100px;
+}
+.update-input-field {
+  padding: 0.5rem 1rem;
+  border: 1px solid #646cff;
+  outline: none;
+  border-radius: 5px;
+  margin-bottom: 1.3rem;
+  width: 40%;
+}
+.update-btn {
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: #646cff;
+  padding: 0.5rem 3rem;
+  margin-bottom: 1.4rem;
+  color: #fff;
+  cursor: pointer;
+}
+.update-btn:hover {
+  background-color: #4951ec;
+  transition: 0.3s ease-in-out;
+}
+a {
+  color: #c9c5c5;
+  margin-bottom: 1rem;
+  font-style: italic;
+}

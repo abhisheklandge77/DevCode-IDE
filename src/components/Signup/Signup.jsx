@@ -48,7 +48,7 @@ function Signup({ setShowLoader }) {
         })
         .catch((error) => {
           setShowLoader(false);
-          alert(error.response.data.error);
+          alert(error.response.data.error || "User Registration Failed !");
           console.log("Error::::", error);
         });
     }

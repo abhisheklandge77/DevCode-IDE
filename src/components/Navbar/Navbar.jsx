@@ -95,7 +95,7 @@ function Navbar(props) {
       </div>
       {showEditorOptions && (
         <input
-          className="project-name"
+          className="project-name-input"
           placeholder="Project Name"
           value={projectName}
           onChange={(e) => setProjectName(e.target.value)}
@@ -131,6 +131,11 @@ function Navbar(props) {
           setJsCode={setJsCode}
           setProjectName={setProjectName}
           setProjectId={setProjectId}
+          htmlCode={htmlCode}
+          cssCode={cssCode}
+          jsCode={jsCode}
+          projectId={projectId}
+          projectName={projectName}
         />
       </div>
     </nav>

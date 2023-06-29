@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./AccountMenu.css";
 import { Menu, MenuItem } from "@mui/material";
-import { Home, Logout, Person } from "@mui/icons-material";
+import { Add, Home, Logout, Person } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -17,6 +17,11 @@ function AccountMenu(props) {
     setCssCode,
     setJsCode,
     setProjectName,
+    htmlCode,
+    cssCode,
+    jsCode,
+    projectId,
+    projectName,
   } = props;
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -51,6 +56,46 @@ function AccountMenu(props) {
     } else {
       setShowLoader(false);
       alert("Failed to logout !");
+    }
+  };
+
+  const handleNewCodeBtnClick = async () => {
+    handleClose();
+    if (htmlCode || cssCode || jsCode) {
+      setShowLoader(true);
+      const url = "/save-project";
+      await axios
+        .post(url, {
+          id: userData._id,
+          projectName: projectName || "Untitled",
+          htmlCode,
+          cssCode,
+          jsCode,
+          projectId,
+        })
+        .then((res) => {
+          if (res) {
+            setShowLoader(false);
+            setProjectId("");
+            setProjectName("Untitled");
+            setHtmlCode("");
+            setCssCode("");
+            setJsCode("");
+            navigate("/code-editor");
+          }
+        })
+        .catch((error) => {
+          setShowLoader(false);
+          alert(`Your current project '${projectName}' is not saved yet !`);
+          console.log("Error::::", error);
+        });
+    } else {
+      setProjectId("");
+      setProjectName("Untitled");
+      setHtmlCode("");
+      setCssCode("");
+      setJsCode("");
+      navigate("/code-editor");
     }
   };
 
@@ -120,7 +165,15 @@ function AccountMenu(props) {
         )}
         {userData?.userName && (
           <>
-            <MenuItem onClick={handleClose}>
+            <MenuItem onClick={() => handleNewCodeBtnClick()}>
+              <Add className="account-menu-icon" fontSize="small" /> New Code
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                handleClose();
+                navigate("/profile");
+              }}
+            >
               <Person className="account-menu-icon" fontSize="small" /> Profile
             </MenuItem>
             <MenuItem onClick={handleLogoutClick}>

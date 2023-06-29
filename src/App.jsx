@@ -18,6 +18,8 @@ import Loader from "./components/Loader/Loader";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
+import Profile from "./components/Profile/Profile";
+import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
 
 axios.defaults.baseURL = API_BASE_URL;
 
@@ -141,6 +143,29 @@ function App() {
                   jsCode={jsCode}
                 />
               }
+            />
+            <Route
+              path="/profile"
+              element={
+                <Profile
+                  setShowLoader={setShowLoader}
+                  htmlCode={htmlCode}
+                  setHtmlCode={setHtmlCode}
+                  cssCode={cssCode}
+                  setCssCode={setCssCode}
+                  jsCode={jsCode}
+                  setJsCode={setJsCode}
+                  setProjectId={setProjectId}
+                  setProjectName={setProjectName}
+                  validateUser={validateUser}
+                  projectName={projectName}
+                  projectId={projectId}
+                />
+              }
+            />
+            <Route
+              path="/update-profile"
+              element={<UpdateProfile setShowLoader={setShowLoader} />}
             />
             <Route
               path="/forgot-password"
