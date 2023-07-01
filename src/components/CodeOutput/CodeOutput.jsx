@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./CodeOutput.css";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import { Links } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function CodeOutput(props) {
   const { htmlCode, cssCode, jsCode } = props;
