@@ -27,11 +27,12 @@ function Profile({
   const handleDeleteBtnClick = async (project) => {
     if (
       !confirm(
-        `Are you sure you want to delete project '${project?.projectName}'`
+        `Are you sure you want to delete project '${project?.projectName}'?`
       )
     ) {
       return;
     } else {
+      setShowLoader(true);
       const url = "/delete-project";
       await axios
         .post(url, {
@@ -119,7 +120,11 @@ function Profile({
         <h2 className="profile-user-name">
           {userData?.userName || "Not Signed In"}
         </h2>
-        {userData?.userName && <a href="/update-profile">Update Profile</a>}
+        {userData?.userName && (
+          <span className="link" onClick={() => navigate("/update-profile")}>
+            Update Profile
+          </span>
+        )}
       </div>
       <div className="projects-wrapper">
         <h2 className="my-projects-header">My Projects</h2>

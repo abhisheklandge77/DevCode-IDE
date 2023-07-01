@@ -66,7 +66,9 @@ function ResetPassword({ setShowLoader, setShowNavbar }) {
         <button className="reset-btn" onClick={() => handleResetBtnClick()}>
           Submit
         </button>
-        <a href="/">Home</a>
+        <span className="link" onClick={() => navigate("/")}>
+          Home
+        </span>
       </div>
     </div>
   );

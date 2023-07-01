@@ -74,11 +74,15 @@ function UpdateProfile({ setShowLoader }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <a href="/forgot-password">Reset Password</a>
+        <span className="link" onClick={() => navigate("/forgot-password")}>
+          Reset Password
+        </span>
         <button className="update-btn" onClick={() => handleUpdateBtnClick()}>
           Update
         </button>
-        <a href="/profile">Back</a>
+        <span className="link" onClick={() => navigate("/profile")}>
+          Back
+        </span>
       </div>
     </div>
   );

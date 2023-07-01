@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./ForgotPassword.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function ForgotPassword({ setShowLoader }) {
   const [email, setEmail] = useState("");
   const [emailSendMsg, setEmailSendMsg] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSendEmailBtnClick = async () => {
     if (!email) {
@@ -52,7 +55,9 @@ function ForgotPassword({ setShowLoader }) {
         >
           Send Email
         </button>
-        <a href="/">Home</a>
+        <span className="link" onClick={() => navigate("/")}>
+          Home
+        </span>
       </div>
     </div>
   );

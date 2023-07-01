@@ -68,11 +68,21 @@ function Login({ setShowNavbar, setShowLoader }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <a href="/forgot-password">Forgot Password ?</a>
+        <span
+          className="link"
+          onClick={() => {
+            setShowNavbar(true);
+            navigate("/forgot-password");
+          }}
+        >
+          Forgot Password ?
+        </span>
         <button className="login-btn" onClick={() => handleLoginBtnClick()}>
           Login
         </button>
-        <a href="/signup">Don't have an account? Sign Up</a>
+        <span className="link" onClick={() => navigate("/signup")}>
+          Don't have an account? Sign Up
+        </span>
       </div>
     </div>
   );

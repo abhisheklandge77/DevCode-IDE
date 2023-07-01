@@ -90,7 +90,9 @@ function Signup({ setShowLoader }) {
         <button className="signup-btn" onClick={() => handleRegisterBtnClick()}>
           Register
         </button>
-        <a href="/login">Already have an account? Login</a>
+        <span className="link" onClick={() => navigate("/login")}>
+          Already have an account? Login
+        </span>
       </div>
     </div>
   );
