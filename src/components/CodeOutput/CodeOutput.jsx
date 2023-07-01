@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./CodeOutput.css";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import { Link } from "react-router-dom";
 
 function CodeOutput(props) {
   const { htmlCode, cssCode, jsCode } = props;
-
-  // const navigate = useNavigate();
 
   const [outputDoc, setOutputDoc] = useState(`
   <html lang="en">
@@ -47,17 +44,14 @@ function CodeOutput(props) {
   return (
     <div className="code-output-container">
       {window.location.pathname !== "/code-output" && (
-        // <span onClick={() => navigate("/code-output")} className="new-window">
-        //   <OpenInNewIcon className="new-window-icon" />
-        // </span>
-        <Link
-          to={"/code-output"}
-          target="_blank"
-          rel="noreferrer"
+        <span
+          onClick={() =>
+            window.open("/code-output", "_blank", "rel=noopener noreferrer")
+          }
           className="new-window"
         >
           <OpenInNewIcon className="new-window-icon" />
-        </Link>
+        </span>
       )}
       <iframe
         srcDoc={outputDoc}
