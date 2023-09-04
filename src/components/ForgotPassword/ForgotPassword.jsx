@@ -22,7 +22,6 @@ function ForgotPassword({ setShowLoader }) {
           email,
         })
         .then((res) => {
-          console.log("Response:::", res);
           if (res) {
             setEmailSendMsg("Password reset link is send to your email");
             setShowLoader(false);

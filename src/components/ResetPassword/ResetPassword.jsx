@@ -29,7 +29,6 @@ function ResetPassword({ setShowLoader, setShowNavbar }) {
           newPassword: password,
         })
         .then((res) => {
-          console.log("Response:::", res);
           if (res) {
             setShowLoader(false);
             alert("Password Updated Successfully");

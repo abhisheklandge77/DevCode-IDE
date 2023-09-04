@@ -31,7 +31,6 @@ function Login({ setShowNavbar, setShowLoader }) {
           password,
         })
         .then((res) => {
-          console.log("Response:::", res);
           if (res) {
             localStorage.setItem("userauthtoken", res?.data?.data?.token);
             setShowLoader(false);

@@ -64,7 +64,6 @@ function App() {
         Authorization: token,
       },
     });
-    console.log("validate response:::", response);
     if (response?.data?.status === 201) {
       setUserData(response.data.data);
     } else if (response?.data?.status === 401) {

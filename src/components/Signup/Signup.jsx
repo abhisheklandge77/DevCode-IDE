@@ -38,7 +38,6 @@ function Signup({ setShowLoader }) {
           password,
         })
         .then((res) => {
-          console.log("Response:::", res);
           if (res) {
             setShowLoader(false);
             alert("User Registered Successfully");

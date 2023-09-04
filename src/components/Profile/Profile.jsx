@@ -40,7 +40,6 @@ function Profile({
           project,
         })
         .then((res) => {
-          console.log("Delete Response:::", res);
           if (res) {
             setShowLoader(false);
             alert(`Project '${project.projectName}' Deleted Successfully`);

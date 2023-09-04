@@ -40,7 +40,6 @@ function UpdateProfile({ setShowLoader }) {
           email,
         })
         .then((res) => {
-          console.log("Update Response:::", res);
           if (res) {
             setShowLoader(false);
             alert("User Updated Successfully");

@@ -32,7 +32,6 @@ function Navbar(props) {
   } = props;
 
   const userData = useContext(UserContext);
-  console.log("UserData:::", userData);
 
   const navigate = useNavigate();
 
